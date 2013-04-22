@@ -1,0 +1,2 @@
+{{extend "plugin_layouts/layouts/Background.html"}}{{include}}
+{{=MENU(response.menu)}}

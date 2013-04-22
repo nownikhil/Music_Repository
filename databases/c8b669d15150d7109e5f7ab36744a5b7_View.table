@@ -1,0 +1,14 @@
+(dp1
+S'Name'
+p2
+S'INTEGER REFERENCES Upload(id) ON DELETE CASCADE'
+p3
+sS'id'
+p4
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p5
+sS'view'
+p6
+S'INTEGER'
+p7
+s.

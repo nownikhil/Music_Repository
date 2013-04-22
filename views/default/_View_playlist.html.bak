@@ -1,0 +1,4 @@
+{{extend 'layout.html'}}
+<h1>This is the default/_View_playlist.html template</h1>
+{{for song in songs:}}
+    {{=song.Name}}

@@ -1,0 +1,54 @@
+{{extend 'layout.html'}}
+<br></br>
+<table>
+
+<td width="40%">
+<b><font size="4">GENER </font></b>
+
+ {{for type in type_song:}} 
+     <br><font size="2" >{{=A(type.song_type, _href=URL(r=request, f="view_songs", args=type.id))}}</font></br></i>
+ {{pass}}
+{{pass}}
+<br></br>
+<br></br>
+
+
+<p><font size="3">{{=A("Top 10 Rated Songs", _href=URL(r=request,f="top_10"))}}</font></p>
+<p><font size="3">{{=A("Top 10 Played Songs", _href=URL(r=request,f="top_played"))}}</font></p>
+<p><font size="3">{{=A("Recently Added", _href=URL(r=request,f="recently_added"))}}</font></p>
+<p><font size="3">{{=A("View Your Playlist", _href=URL(r=request,f="View_playlist"))}}</font></p>
+
+<br></br>
+<br></br>
+<p><b><font size="3">{{=A("click here to upload", _href=URL(r=request,f="upload"))}}</font></b></p>
+</div>
+</td>
+
+<td width="60%">
+
+<div >
+<b><font size="5">Playlist</font></b>
+<br></br>
+<p align="right">
+{{=table}}
+</p>
+<br></br>
+<br></br>
+</td>
+</tr>
+
+
+</table>
+
+<div align="center">
+<form method="get" action="http://www.google.com/search">
+<input type="text"   name="q" size="31"
+ maxlength="255" value="music library" />
+<input type="submit" value="Google Search" />
+
+</form>
+
+
+
+    <i><br><font size="1">{{=A("click here for admin interface",_href=URL(r=request,f="admin"))}}</font></br></i>
+</div>

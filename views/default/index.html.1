@@ -1,0 +1,48 @@
+{{extend 'layout.html'}}
+<br></br>
+<table>
+
+<td widht="20%">
+<b><font size="4">GENER </font></b>
+
+ {{for type in type_song:}} 
+     <br><font size="2" >{{=A(type.song_type, _href=URL(r=request, f="view_songs", args=type.id))}}</font></br></i>
+ {{pass}}
+
+
+
+ 
+{{pass}}
+
+
+
+
+</div>
+</td>
+
+<td widht="80%">
+
+<div >
+<b><font size="5">Playlist</font></b>
+
+<br></br>
+<p align="right">
+{{=table}}
+</p>
+<br></br>
+<br></br>
+</td>
+</tr>
+</table>
+
+<form method="get" action="http://www.google.com/search">
+
+<input type="text"   name="q" size="31"
+ maxlength="255" value="music library" />
+<input type="submit" value="Google Search" />
+<input type="radio"  name="sitesearch" value="" />
+ 
+</form>
+<i><p><font size="1">{{=A("click here to upload", _href=URL(r=request,f="upload"))}}</font></p></i>
+
+    <i><p><font size="1">{{=A("click here for admin interface",_href=URL(r=request,f="admin"))}}</font></p></i>

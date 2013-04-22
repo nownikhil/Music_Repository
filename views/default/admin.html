@@ -1,0 +1,14 @@
+{{extend 'layout.html'}}
+<div align="left">
+<br></br>
+<h1>Welcome Admin</h1>
+<br></br>
+
+<ul>
+
+<br><li><font size="3">{{=A('Delete User',_href=URL(r=request,f="admin_remove_user"))}}</font></li></br>
+<br><li><font size="3">{{=A('Delete Song',_href=URL(r=request,f="admin_remove_song"))}}</font></li></br>
+<br><li><font size="3">{{=A('Delete Comment',_href=URL(r=request,f="admin_remove_comments"))}}</font></li></br>
+<br><li><font size="3">{{=A('Add Gener',_href=URL(r=request,f="admin_add_gener"))}}</font></li></br>
+
+</div>

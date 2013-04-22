@@ -1,0 +1,11 @@
+{{extend 'layout.html'}}
+<br></br>
+<b><font size="5">Enter The Gener To be Added</b></font>
+<br></br>
+<br></br>
+{{=form}}
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br><br></br><br></br>

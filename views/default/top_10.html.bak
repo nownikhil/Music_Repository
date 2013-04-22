@@ -1,0 +1,30 @@
+{{extend 'layout.html'}}
+
+{{dict=[]}}
+{{Count=0}}
+<div align="center">
+<br></br>
+<font size="5"><b>10 Top Rated Songs</b></font>
+
+</div>
+<ul>
+<table>
+
+{{for song in song_10:}}
+{{if Count == 10 : }}
+{{break;}}
+{{pass}}    
+
+{{if song.Name not in dict:}}
+{{dict.append(song.Name)}}
+{{#Count=Count-1}}
+<tr>
+<td  width="20%"><font size="3">{{=A(song.Name_song,_href=URL(r=request, f="song_details", args=song.Name))}}</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+<td width="20%"><font size="3">Average Rating:{{=song.Rate}}</font></td>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp
+<td width="60%"><font size="3">Rates:{{=song.Times_played}}</font></td>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp
+</tr>
+{{Count = Count+1}}
+{{pass}}
+{{pass}}
+</ul>
+</table>

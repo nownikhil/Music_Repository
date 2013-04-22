@@ -1,0 +1,37 @@
+{{extend 'layout.html'}}
+{{dict=[]}}
+{{Count=0}}
+<div align="center">
+<br></br>
+<font size="5"><b>10 Most Recently Added Songs</b></font>
+
+
+</div>
+<ul>
+<table>
+<tr>
+&nbsp;&nbsp;&nbsp;&nbsp;<td width="50%">&nbsp;<font size="4">&nbsp;Name Of Song</font></td> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<td width="30%"><font size="4">&nbsp;Artist</font></td> &nbsp;&nbsp;&nbsp
+<td width="20%"><font size="4">&nbsp;Album</font></td>
+</tr>
+
+{{for song in recent:}}
+{{if Count == 10 : }}
+{{break;}}
+{{pass}}    
+
+{{if song.id not in dict:}}
+{{dict.append(song.id)}}
+
+{{#Count=Count-1}}
+
+<tr>
+&nbsp;&nbsp;&nbsp;&nbsp;<td width="50%">&nbsp;<font size="3">&nbsp;{{=A(song.Name,_href=URL(r=request, f="song_details", args=song.id))}}</font></td> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<td width="30%">&nbsp;{{=song.artist}}</td> &nbsp;&nbsp;&nbsp
+<td width="20%">&nbsp;{{=song.album}}</td>
+</tr>
+{{Count = Count+1}}
+{{pass}}
+{{pass}}
+</ul>
+</table>

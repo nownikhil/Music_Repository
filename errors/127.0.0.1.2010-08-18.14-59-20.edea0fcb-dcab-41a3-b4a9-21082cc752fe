@@ -1,0 +1,17 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'C:\\Users\\suraj\\Desktop\\Studies\\web2py\\applications\\music_library/controllers/default.py'
+p4
+sS'code'
+p5
+S'# -*- coding: utf-8 -*- \n\n#########################################################################\n## This is a samples controller\n## - index is the default action of any application\n## - user is required for authentication and authorization\n## - download is for downloading files uploaded in the db (does streaming)\n## - call exposes all registered services (none by default)\n#########################################################################  \n\ndef index():\n    """\n    example action using the internationalization operator T and flash\n    rendered by views/default/index.html or views/generic.html\n    """\n    response.flash = T(\'Welcome to web2py\')\n    return dict(message=T(\'Hello World\'))\n\n\ndef user():\n    """\n    exposes:\n    http://..../[app]/default/user/login \n    http://..../[app]/default/user/logout\n    http://..../[app]/default/user/register\n    http://..../[app]/default/user/profile\n    http://..../[app]/default/user/retrieve_password\n    http://..../[app]/default/user/change_password\n    use @auth.requires_login()\n        @auth.requires_membership(\'group name\')\n        @auth.requires_permission(\'read\',\'table name\',record_id)\n    to decorate functions that need access control\n    """\n    return dict(form=auth())\n\n\ndef download():\n    """\n    allows downloading of uploaded files\n    http://..../[app]/default/download/[filename]\n    """\n    return response.download(request,db)\n\n\ndef call():\n    """\n    exposes services. for example:\n    http://..../[app]/default/call/jsonrpc\n    decorate with @services.jsonrpc the functions to expose\n    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv\n    """\n    session.forget()\n    return service()\n\ndef Types_of_songs():\n   type_song=db(db.Types_of_songs.id>0).select()\n   form=SQLFORM(db.Upload,fields=[\'upload_a_song\',\'Type_of_song\',\'Name\',\'artist\',\'album\'])\n   if form.accepts(request.vars,session):\n      response.flash=\'Song has been uploaded\'\n   return dict(type_song=type_song,form=form)\n\ndef upload():\n   form=SQLFORM(db.Upload,fields=[\'upload_a_song\',\'Type_of_song\',\'Name\',\'artist\',\'album\'])\n   if form.accepts(request.vars,session):\n      response.flash=\'Song has been Uploaded\'\n   return dict(form=form)\n\ndef view_songs():\n   return dict(songs=db(db.Upload.Type_of_song==request.args(0)).select())\n\ndef song_details():\n   song=db(db.Upload.Name==request.args(0)).select()[0]\n   return dict(song=song)\n\nresponse._vars=response._caller(song_details)\n'
+p6
+sS'traceback'
+p7
+S'Traceback (most recent call last):\n  File "gluon/restricted.py", line 178, in restricted\n  File "C:\\Users\\suraj\\Desktop\\Studies\\web2py\\applications\\music_library/controllers/default.py", line 75, in <module>\n  File "gluon/globals.py", line 96, in <lambda>\n  File "C:\\Users\\suraj\\Desktop\\Studies\\web2py\\applications\\music_library/controllers/default.py", line 72, in song_details\n  File "gluon/sql.py", line 3509, in __getitem__\nIndexError: list index out of range\n'
+p8
+s.

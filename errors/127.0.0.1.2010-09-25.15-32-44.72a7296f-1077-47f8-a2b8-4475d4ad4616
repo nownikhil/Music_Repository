@@ -1,0 +1,17 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'C:\\Users\\suraj\\Desktop\\Studies\\web2py\\applications\\Music_Library/views\\default/top_10.html'
+p4
+sS'code'
+p5
+S"count=0\nresponse.write('\\r\\n', escape=False)\nfor i in song_10:\n    response.write('\\r\\n', escape=False)\n    count = count +1\n    response.write('\\r\\n', escape=False)\n    if count > 5\n    response.write('\\r\\n', escape=False)\n    break\nresponse.write('\\r\\n', escape=False)\npass\nresponse.write('\\r\\n', escape=False)\nresponse.write(i.Name)\nresponse.write('\\r\\n', escape=False)\npass\nresponse.write('\\r\\n', escape=False)"
+p6
+sS'traceback'
+p7
+S'Traceback (most recent call last):\n  File "gluon/restricted.py", line 176, in restricted\n  File "gluon/restricted.py", line 163, in compile2\n  File "C:\\Users\\suraj\\Desktop\\Studies\\web2py\\applications\\Music_Library/views\\default/top_10.html", line 7\n    if count > 5\n               \n^\nSyntaxError: invalid syntax\n'
+p8
+s.

@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+<h1>uploaded songs</h1>
+<ul>
+ {{for song in songs:}}
+ <li>print song</li>
+ {{pass}}

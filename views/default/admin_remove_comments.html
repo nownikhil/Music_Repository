@@ -1,0 +1,14 @@
+{{extend 'layout.html'}}
+<br></br>
+<b><font size="5">List of Comments</b></font>
+
+<table cellspacing="6">
+ {{for comment in comments:}}
+    <tr>
+    <td width="93%"><font size="3">{{=comment.Nick_name}}</font>
+    <font size="2">&nbsp; commented </font><font size="2">&nbsp; on &nbsp; {{=comment.NAME_song}}&nbsp;
+    {{=comment.comment}}</font></td>
+    <td width="7%"><font size="2">
+    {{=A('Delete',_href=URL(r=request,f="delete_comment",args=comment.id))}}</font></td></tr>
+{{pass}}
+</table>

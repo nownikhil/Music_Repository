@@ -1,0 +1,127 @@
+(dp1
+S'last_query'
+p2
+S'db.Upload.id>0'
+p3
+sS'_formkey[register]'
+p4
+S'58bc56f4-fc5f-4179-b7c2-75f2d4b67022'
+p5
+sS'flash'
+p6
+NsS'_formkey[Types_of_songs_create]'
+p7
+S'a69ec4be-a978-40e3-ae2d-880c5bafd48f'
+p8
+sS'auth'
+p9
+NsS'last_orderby'
+p10
+NsS'_formkey[auth_group_create]'
+p11
+S'ae9a74c4-e304-418a-a733-8c9024ee1671'
+p12
+sS'_formkey[auth_user_create]'
+p13
+S'd8ccb8af-d8c2-4d55-ab37-222f2e789a53'
+p14
+sS'_formkey[default]'
+p15
+S'd8efffb5-f2af-4657-9d9c-d091cc5d9d54'
+p16
+sS'_formkey[Upload_create]'
+p17
+S'ce32b274-f6e1-480b-a843-2b7d3c549068'
+p18
+sS'_formkey[auth_membership_create]'
+p19
+S'821027fe-7f9b-4a0a-85f8-706ae2cc7789'
+p20
+sS'_formkey[auth_permission_create]'
+p21
+S'44c274d3-5d35-4c5f-b40f-be2a1db49cf2'
+p22
+s.p38
+sS'Invalid email'
+p39
+S'Invalid email'
+p40
+sS'Group ID'
+p41
+S'Group ID'
+p42
+sS'Registration key'
+p43
+S'Registration key'
+p44
+sS'E-mail'
+p45
+S'E-mail'
+p46
+sS'First name'
+p47
+S'First name'
+p48
+sS'User ID'
+p49
+S'User ID'
+p50
+sS'Role'
+p51
+S'Role'
+p52
+sS'Record ID'
+p53
+S'Record ID'
+p54
+sS'Table name'
+p55
+S'Table name'
+p56
+sS'Password'
+p57
+S'Password'
+p58
+sS'Cannot be empty'
+p59
+S'Cannot be empty'
+p60
+sS'Timestamp'
+p61
+S'Timestamp'
+p62
+sS'Name'
+p63
+S'Name'
+p64
+ssS'language_file'
+p65
+NsS'folder'
+p66
+S'/home/vibhor/Desktop/web2py/applications/music_library/'
+p67
+sbsbsS'_formkey[Types_of_songs_create]'
+p68
+S'a69ec4be-a978-40e3-ae2d-880c5bafd48f'
+p69
+sS'auth'
+p70
+NsS'last_orderby'
+p71
+NsS'_formkey[auth_group_create]'
+p72
+S'f824f2ff-5c59-4903-b994-772ba439211e'
+p73
+sS'_formkey[auth_user_create]'
+p74
+S'd8ccb8af-d8c2-4d55-ab37-222f2e789a53'
+p75
+sS'_formkey[auth_membership_create]'
+p76
+S'b7be169e-87eb-44f8-8921-e7d61ff201ea'
+p77
+sS'_formkey[auth_permission_create]'
+p78
+S'44c274d3-5d35-4c5f-b40f-be2a1db49cf2'
+p79
+s.

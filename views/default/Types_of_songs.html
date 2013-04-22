@@ -1,0 +1,18 @@
+{{extend 'layout.html'}}
+<br></br>
+
+<b><font size="5">Playlist</font></b>
+<br></br>
+<br></br>
+{{=table}}
+<br></br>
+<br></br>
+<b><font size="4">View the list song of a particular type </font></b>
+
+ {{for type in type_song:}} 
+     <br><font size="2" >{{=A(type.song_type, _href=URL(r=request, f="view_songs", args=type.id))}}</font></br></i>
+ {{pass}}
+
+
+
+ <i><p><font size="1">{{=A("click here to upload",_href=URL(r=request,f="upload"))}}</font></p></i>

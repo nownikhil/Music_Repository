@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+<embed src={{=file_name}} autostart="false"></embed>
+<br></br>
+<br></br>
+<br></br>
+<br></br>

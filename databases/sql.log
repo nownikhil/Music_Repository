@@ -1,0 +1,171 @@
+timestamp: 2010-08-12T08:58:02.488562
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512)
+);
+success!
+timestamp: 2010-08-12T08:58:02.607236
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2010-08-12T08:58:02.688291
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2010-08-12T08:58:02.796596
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2010-08-12T08:58:02.875924
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2010-08-12T08:58:02.974445
+CREATE TABLE Types_of_songs(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    song_type CHAR(512)
+);
+success!
+timestamp: 2010-08-12T09:37:21.488288
+CREATE TABLE Upload(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    upload_a_song CHAR(512),
+    Type_of_song INTEGER REFERENCES Types_of_songs(id) ON DELETE CASCADE,
+    Upload_on DATE,
+    Name CHAR(64)
+);
+success!
+timestamp: 2010-08-13T09:38:45.868618
+CREATE TABLE Album(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    album CHAR(512)
+);
+success!
+timestamp: 2010-08-13T09:38:46.073486
+CREATE TABLE Artist(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    artist CHAR(512)
+);
+success!
+timestamp: 2010-08-13T09:45:37.379483
+ALTER TABLE Upload ADD album INTEGER REFERENCES Album(id) ON DELETE CASCADE;
+timestamp: 2010-08-13T09:45:37.475518
+ALTER TABLE Upload ADD artist INTEGER REFERENCES Artist(id) ON DELETE CASCADE;
+timestamp: 2010-08-13T11:30:13.905818
+CREATE TABLE Comments(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    comment TEXT,
+    Name INTEGER REFERENCES Upload(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2010-08-18T09:41:37.786000
+ALTER TABLE Album ADD name INTEGER REFERENCES Upload(id) ON DELETE CASCADE;
+timestamp: 2010-08-18T09:41:37.836000
+ALTER TABLE Artist ADD name INTEGER REFERENCES Upload(id) ON DELETE CASCADE;
+timestamp: 2010-08-18T09:41:37.859000
+CREATE TABLE Rating(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    integer CHAR(512),
+    Name INTEGER REFERENCES Upload(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2010-08-20T22:39:13.230000
+ALTER TABLE Comments ADD commented_on DATE;
+timestamp: 2010-08-20T22:57:05.547000
+ALTER TABLE Comments ADD nick_name CHAR(16);
+timestamp: 2010-08-24T15:44:58.106000
+CREATE TABLE Playlist(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    song INTEGER REFERENCES Upload(id) ON DELETE CASCADE,
+    user INTEGER REFERENCES auth_user(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2010-08-24T16:00:08.955000
+CREATE TABLE plugin_rating_master(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tablename CHAR(512),
+    record_id INTEGER,
+    rating DOUBLE,
+    counter INTEGER
+);
+success!
+timestamp: 2010-08-24T16:00:08.966000
+CREATE TABLE plugin_rating_aux(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    master INTEGER REFERENCES plugin_rating_master(id) ON DELETE CASCADE,
+    rating DOUBLE,
+    created_by INTEGER REFERENCES auth_user(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2010-08-24T17:10:34.648000
+ALTER TABLE Playlist ADD user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE;
+timestamp: 2010-08-29T13:21:06.202000
+CREATE TABLE Gener(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    gener CHAR(512)
+);
+success!
+timestamp: 2010-08-29T19:13:25.384000
+ALTER TABLE Rating ADD rate INTEGER;
+timestamp: 2010-08-29T19:13:25.391000
+ALTER TABLE Rating ADD times_played INTEGER;
+timestamp: 2010-08-29T19:13:25.420000
+ALTER TABLE Rating ADD sum INTEGER;
+timestamp: 2010-08-30T03:52:36.875000
+ALTER TABLE Playlist ADD name CHAR(512);
+timestamp: 2010-08-30T18:02:36.150000
+CREATE TABLE Views(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    view INTEGER,
+    Name INTEGER REFERENCES Upload(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2010-08-30T18:05:25.635000
+CREATE TABLE View(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    view INTEGER,
+    Name INTEGER REFERENCES Upload(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2010-08-30T18:08:42.221000
+ALTER TABLE Views ADD names INTEGER REFERENCES Upload(id) ON DELETE CASCADE;
+timestamp: 2010-08-30T18:24:21.347000
+ALTER TABLE Views ADD gana INTEGER REFERENCES Upload(id) ON DELETE CASCADE;
+timestamp: 2010-08-30T19:47:38.119000
+ALTER TABLE Comments ADD name_song CHAR(512);
+timestamp: 2010-09-25T15:46:51.603000
+ALTER TABLE Rating ADD name_song CHAR(512);
+timestamp: 2013-04-22T21:34:57.336662
+ALTER TABLE auth_user ADD registration_id CHAR(512);
+timestamp: 2013-04-22T21:34:57.505770
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!

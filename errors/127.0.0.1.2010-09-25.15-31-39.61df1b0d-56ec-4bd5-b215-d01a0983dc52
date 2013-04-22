@@ -1,0 +1,16 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'Framework'
+p4
+sS'code'
+p5
+S''
+sS'traceback'
+p6
+S'Traceback (most recent call last):\n  File "gluon/main.py", line 382, in wsgibase\n  File "gluon/main.py", line 159, in serve_controller\n  File "gluon/compileapp.py", line 472, in run_view_in\n  File "gluon/template.py", line 804, in parse_template\n  File "gluon/template.py", line 299, in __init__\n  File "gluon/template.py", line 779, in parse\n  File "gluon/template.py", line 453, in extend\n  File "gluon/template.py", line 417, in _get_file_text\n  File "<string>", line 1\n    .html\n    ^\nSyntaxError: invalid syntax\n'
+p7
+s.

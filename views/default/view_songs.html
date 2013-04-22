@@ -1,0 +1,27 @@
+{{extend 'layout.html'}}
+<div align="center">
+<br></br>
+<b><font size="5">Available Songs in the Selected Gener</font></b>
+<br></br>
+<br></br>
+<table cellspacing="6">
+
+ {{for song in songs:}}
+
+<tr>
+<ul>
+
+    <td width="65%"><font size="3"><li>{{=A(song.Name, _href=URL(r=request, f="song_details", args=song.id))}}</li></font></td>
+    <td width="10%"> {{=A("Download", _href=URL(r=request, f="download", args=song.upload_a_song))}}</td>
+    <td width="25%">{{=A("Add to Playlist", _href=URL(r=request, f="playlist", args=[song.id,song.Name]))}}</td>
+
+</ul>
+</tr>
+
+ {{pass}}
+</table>
+</div>
+<br></br>
+<br></br>
+<br></br>
+<br></br>

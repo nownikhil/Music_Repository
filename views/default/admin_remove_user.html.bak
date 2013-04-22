@@ -1,0 +1,15 @@
+{{extend 'layout.html'}}
+<b><font size="5">List Of Users</font></b>
+<table cellspacing="6">
+{{for use in user_list:}}
+    <br><tr>
+    <td width="40%"<font size="3">{{=use.first_name}}</font>
+    <font size="3">{{=use.last_name}}</font></td>
+    <td width="52%"<font size="3">{{=use.email}}</font></td>
+    <td width="8%"><font size="2">
+    {{=A('Delete',_href=URL(r=request,f="delete_user",args=use.id))}}</font></td></tr></br>
+   
+
+{{pass}}
+</table>
+<br></br>  <br></br>  <br></br>  <br></br>  <br></br>

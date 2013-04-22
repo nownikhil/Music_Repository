@@ -1,0 +1,73 @@
+{{extend 'layout.html'}}
+<div align="center">
+<b><font size="5">
+<br>Details of Selected Song</br></b></font>
+</div>
+<table>
+
+<tr>
+<td width="10%"></td>
+<td width="35%">
+
+
+<br></br>  
+  {{for details in song:}}
+    <font size="3" width="30%"><b>Song Name :</b>{{=details.Name}}<b></font>
+    <font size="2" width="30%"><br>Album   : {{=details.album}}</br></font>
+    <font size="2" width="20%"><br>Artist  : {{=details.artist}}</br></font>
+    <font size="2" width="20%"><br>Uploaded on:  {{=details.Upload_on}}</br> </font>
+</td>
+
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+<td width="65%">
+<br></br>
+    <p> <font size="2" width="30%"><b>{{=A('Add A Comment', _href=URL(r=request,f='add_comment',args=[details.id,details.Name]))}}   <b></font>  
+    <br> <font size="2" width="30%"><b>{{=A('Download', _href=URL(r=request,f="download",args=details.upload_a_song))}}</br><b></font>
+    <br> <font size="2" width="30%"><b>{{=A('Play', _href=URL(r=request,f="player",args=[details.upload_a_song,details.id,details.Name]))}}</br></p><b></font>
+    
+    Rate This Song :{{=A("1", _href=URL(r=request,f="rating",args=["1",details.id,details.Name]))}}
+    {{=A("2", _href=URL(r=request,f="rating",args=["2",details.id,details.Name]))}}
+    {{=A("3", _href=URL(r=request,f="rating",args=["3",details.id,details.Name]))}}
+    {{=A("4", _href=URL(r=request,f="rating",args=["4",details.id,details.Name]))}}
+    {{=A("5", _href=URL(r=request,f="rating",args=["5",details.id,details.Name]))}}
+  {{pass}}  
+</ul>
+<br>
+{{z=0}}
+{{for rate in rating:}}
+    {{x=rate.Sum}}
+    {{y=rate.Times_played}} 
+    {{z=x/y}}  
+    
+{{pass}}
+Average Rating:
+{{=z}}
+
+{{xas=0}}
+{{for i in Count:}}
+
+{{xas=i.view}}
+{{pass}}
+<br>
+Times Played: 
+  {{=xas}}
+
+</br>
+</td>
+</table>
+<ul>
+<font size="4">Previous comments</font>
+{{for commentx in comments:}}
+    <li><font size="2">{{=commentx.Nick_name}} </font>commented
+    <font size="1">{{=commentx.comment}}</font>
+    on {{=commentx.Commented_on}}</li>
+{{pass}}
+</ul>
+</div>

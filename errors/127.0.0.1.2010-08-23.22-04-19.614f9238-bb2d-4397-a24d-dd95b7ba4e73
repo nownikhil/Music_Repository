@@ -1,0 +1,17 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'C:\\Users\\suraj\\Desktop\\Studies\\web2py\\applications\\music_library/controllers/plugin_jqgrid.py'
+p4
+sS'code'
+p5
+S'def error():\n    raise HTTP(400)\n\ndef data():\n    "http://trirand.com/blog/jqgrid/server.php?q=1&_search=false&nd=1267835445772&rows=10&page=1&sidx=amount&sord=asc&searchField=&searchString=&searchOper="\n    from gluon.serializers import json\n    import cgi\n    tablename = request.vars.tablename or error()\n    columns = (request.vars.columns or error()).split(\',\')\n    rows=int(request.vars.rows or 25)\n    page=int(request.vars.page or 0)\n    sidx=request.vars.sidx or \'id\'\n    sord=request.vars.sord or \'asc\'\n    searchField=request.vars.searchField\n    searchString=request.vars.searchString\n    searchOper={\'eq\':lambda a,b: a==b,\n                \'nq\':lambda a,b: a!=b,\n                \'gt\':lambda a,b: a>b,\n                \'ge\':lambda a,b: a>=b,\n                \'lt\':lambda a,b: a<b,\n                \'le\':lambda a,b: a<=b,\n                \'bw\':lambda a,b: a.like(b+\'%\'),\n                \'bn\':lambda a,b: ~a.like(b+\'%\'),\n                \'ew\':lambda a,b: a.like(\'%\'+b),\n                \'en\':lambda a,b: ~a.like(\'%\'+b),\n                \'cn\':lambda a,b: a.like(\'%\'+b+\'%\'),\n                \'nc\':lambda a,b: ~a.like(\'%\'+b+\'%\'),\n                \'in\':lambda a,b: a.belongs(b.split()),\n                \'ni\':lambda a,b: ~a.belongs(b.split())}\\\n                [request.vars.searchOper or \'eq\']\n    table=db[tablename]\n    if request.vars.fieldname:\n        dbset = table._db(table[request.vars.fieldname]==request.vars.fieldvalue)\n    else:\n        dbset = table._db(table.id>0)\n    if searchField: dbset=dbset(searchOper(table[searchField],searchString))\n    orderby = table[sidx]\n    if sord==\'desc\': orderby=~orderby\n    limitby=(rows*(page-1),rows*page)\n    fields = [table[f] for f in columns]\n    records = dbset.select(orderby=orderby,limitby=limitby,*fields)\n    nrecords = dbset.count()\n    items = {}\n    items[\'page\']=page\n    items[\'total\']=int((nrecords+(rows-1))/rows)\n    items[\'records\']=nrecords\n    readable_fields=[f.name for f in fields if f.readable]\n    def f(value,fieldname):\n        r = table[fieldname].represent\n        if r: value=r(value)\n        try: return value.xml()\n        except: return cgi.escape(str(value))\n\n    items[\'rows\']=[{\'id\':r.id,\'cell\':[f(r[x],x) for x in readable_fields]} \\\n                       for r in records]\n    return json(items)\n\nresponse._vars=response._caller(data)\n'
+p6
+sS'traceback'
+p7
+S'Traceback (most recent call last):\n  File "gluon/restricted.py", line 178, in restricted\n  File "C:\\Users\\suraj\\Desktop\\Studies\\web2py\\applications\\music_library/controllers/plugin_jqgrid.py", line 58, in <module>\n  File "gluon/globals.py", line 96, in <lambda>\n  File "C:\\Users\\suraj\\Desktop\\Studies\\web2py\\applications\\music_library/controllers/plugin_jqgrid.py", line 55, in data\n  File "gluon/sql.py", line 667, in __getattr__\nKeyError: \'id\'\n'
+p8
+s.

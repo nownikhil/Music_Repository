@@ -1,0 +1,28 @@
+{{extend 'layout.html'}}
+
+<div align="center">
+<b><font size="5">Your playlist</font></b>
+<br></br>
+<br></br>
+<table>
+{{for song in songs:}}
+<tr>
+<ul>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    <td width="20%">
+    <td width="50%"><font size="3"><li>{{=A(song.Name,_href=URL(r=request,f="song_details",args=song.song))}}</font></td></li>
+     <td width="20%">
+     <td></td>
+    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    <td width="10%"> {{=A('Delete',_href=URL(r=request,f="delete_playlist",args=song.id))}}</td> 
+</ul>
+</tr>
+{{pass}}
+
+</table>
+</div>
+<br></br>
+<br></br>
+<br></br><br></br><br></br>

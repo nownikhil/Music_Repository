@@ -1,0 +1,5 @@
+{{extend 'layout.html'}}
+{{for use in user_list:}}
+    {{=user_list.first_name}}
+    {{=A('Delete',_href=URL(r=request,f="delete_user",args=user_list.id))}}
+{{pass}}

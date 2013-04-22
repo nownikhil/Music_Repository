@@ -1,0 +1,12 @@
+{{extend 'layout.html'}}
+<br></br>
+<b><font size="5">Your playlist</font></b>
+<br></br>
+
+
+<font size="3" style="color:#000000">
+{{for song in songs:}}
+    {{=song.Name}}</font>
+    {{=A('Delete',_href=URL(r=request,f="delete_playlist",args=song.id))}}
+{{pass}}
+</table>
